@@ -214,7 +214,7 @@ if "%GITHUB_WORKFLOW%" neq "" (
   :dateok
   set OUTPUT_DATE=%LDATE:~10,4%-%LDATE:~4,2%-%LDATE:~7,2%
   
-  echo OUTPUT_DATE=!OUTPUT_DATE!>>%GITHUB_OUTPUT%
+  echo OUTPUT_DATE=!OUTPUT_DATE!>>"%GITHUB_OUTPUT%"
 
   echo Creating leveldb-%TARGET_ARCH%-!OUTPUT_DATE!.zip
   7z.exe a -y -r -mx=9 leveldb-%TARGET_ARCH%-!OUTPUT_DATE!.zip leveldb-%TARGET_ARCH% || exit /b 1
