@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index 38db5fb..fa7906e 100644
+index 38db5fb..a781a97 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -36,14 +36,17 @@ option(LEVELDB_INSTALL "Install LevelDB's header and library" ON)
@@ -23,15 +23,6 @@ index 38db5fb..fa7906e 100644
  check_library_exists(tcmalloc malloc "" HAVE_TCMALLOC)
  
  include(CheckCXXSymbolExists)
-@@ -58,7 +61,7 @@ check_cxx_symbol_exists(O_CLOEXEC "fcntl.h" HAVE_O_CLOEXEC)
- 
- if(CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
-   # Disable C++ exceptions.
--  add_compile_options(/EHs-c-)
-+  add_compile_options(/EHs)
-   add_definitions(-D_HAS_EXCEPTIONS=0)
- 
-   if(LEVELDB_DISABLE_RTTI)
 @@ -284,15 +287,22 @@ endif(HAVE_CLANG_THREAD_SAFETY)
  if(HAVE_CRC32C)
    target_link_libraries(leveldb crc32c)
