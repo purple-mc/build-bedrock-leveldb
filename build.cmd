@@ -93,10 +93,10 @@ where /Q ninja.exe || (
 )
 ninja.exe --version || exit /b 1
 
-call :get "https://github.com/madler/zlib/releases/download/v%ZLIB_VERSION%/zlib-%ZLIB_VERSION%.tar.gz"         || exit /b 1
-call :get "https://github.com/google/snappy/archive/refs/tags/%SNAPPY_VERSION%.tar.gz" %SNAPPY_VERSION%.tar.gz  || exit /b 1
-call :get "https://github.com/facebook/zstd/releases/download/v%ZSTD_VERSION%/zstd-%ZSTD_VERSION%.tar.gz"       || exit /b 1
-call :clone leveldb "https://github.com/Mojang/leveldb.git" main                                                || exit /b 1
+call :get "https://github.com/madler/zlib/releases/download/v%ZLIB_VERSION%/zlib-%ZLIB_VERSION%.tar.gz"                 || exit /b 1
+call :get "https://github.com/google/snappy/archive/refs/tags/%SNAPPY_VERSION%.tar.gz" snappy-%SNAPPY_VERSION%.tar.gz   || exit /b 1
+call :get "https://github.com/facebook/zstd/releases/download/v%ZSTD_VERSION%/zstd-%ZSTD_VERSION%.tar.gz"               || exit /b 1
+call :clone leveldb "https://github.com/Mojang/leveldb.git" main                                                        || exit /b 1
 
 rem
 rem apply patches
